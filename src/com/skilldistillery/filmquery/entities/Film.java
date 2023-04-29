@@ -1,5 +1,7 @@
 package com.skilldistillery.filmquery.entities;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Film {
@@ -14,6 +16,7 @@ public class Film {
 	private double replacementCost;
 	private String rating;
 	private String specialFeatures;
+	List<Actor> actors;
 	
 	
 	public Film(int id, String title, String description, int releaseYear, int languageId, int rentalDuration,
@@ -32,6 +35,17 @@ public class Film {
 		this.specialFeatures = specialFeatures;
 	}
 	
+	
+
+	public Film(String title, String description, int releaseYear, String rating) {
+		super();
+		this.title = title;
+		this.description = description;
+		this.releaseYear = releaseYear;
+		this.rating = rating;
+		
+	}
+
 
 
 	public int getId() {
@@ -191,7 +205,9 @@ public class Film {
 				&& Objects.equals(specialFeatures, other.specialFeatures) && Objects.equals(title, other.title);
 	}
 
-
+	public String filmByFilmIdString() {
+		return "Title: " + getTitle() + "\nRelease Year: " + getReleaseYear() +  "\nRating: " +  getRating() + "\nDescription: " +  getDescription();
+	}
 
 	@Override
 	public String toString() {
@@ -199,6 +215,7 @@ public class Film {
 				+ ", languageId=" + languageId + ", rentalDuration=" + rentalDuration + ", rentalRate=" + rentalRate
 				+ ", length=" + length + ", replacementCost=" + replacementCost + ", rating=" + rating
 				+ ", specialFeatures=" + specialFeatures + "]";
+		
 	}
 	
 	

@@ -2,6 +2,7 @@ package com.skilldistillery.filmquery.entities;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Actor {
 	private int id;
@@ -63,6 +64,27 @@ public class Actor {
 	public String toString() {
 		return "Actor [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + "]";
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(films, firstName, id, lastName);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Actor other = (Actor) obj;
+		return Objects.equals(films, other.films) && Objects.equals(firstName, other.firstName) && id == other.id
+				&& Objects.equals(lastName, other.lastName);
+	}
+	
+	
+	
 	
 	
 	
