@@ -112,7 +112,7 @@ public class FilmQueryApp {
 						System.out.println(f.reducedFilmString(f));	
 						}
 					} else{
-						System.out.println("No Films With Keyword: " + keyWord + " Were Found In The Database");
+						System.out.println("No Films With Keyword " + keyWord + " Were Found In The Database");
 					}
 					String flush2 = input.nextLine();
 				break;
