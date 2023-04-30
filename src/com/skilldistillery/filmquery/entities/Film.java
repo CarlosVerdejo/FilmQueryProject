@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import com.skilldistillery.filmquery.database.DatabaseAccessorObject;
+
 public class Film {
 	private int id;
 	private String title;
@@ -37,13 +39,14 @@ public class Film {
 	
 	
 
-	public Film(String title, String description, int releaseYear, String rating) {
+	public Film(String title, String description, int releaseYear, String rating, int languageId, int id) {
 		super();
 		this.title = title;
 		this.description = description;
 		this.releaseYear = releaseYear;
 		this.rating = rating;
-		
+		this.languageId = languageId;
+		this.id = id;
 	}
 
 
@@ -178,7 +181,11 @@ public class Film {
 		this.specialFeatures = specialFeatures;
 	}
 
-	
+	public String getLanguage() {
+		int langId = getLanguageId(); 
+		DatabaseAccessorObject db = new DatabaseAccessorObject();
+		return db.defineLanguage(langId);
+	}
 
 	@Override
 	public int hashCode() {
@@ -205,8 +212,15 @@ public class Film {
 				&& Objects.equals(specialFeatures, other.specialFeatures) && Objects.equals(title, other.title);
 	}
 
-	public String filmByFilmIdString() {
-		return "Title: " + getTitle() + "\nRelease Year: " + getReleaseYear() +  "\nRating: " +  getRating() + "\nDescription: " +  getDescription();
+	public String reducedFilmString(Film film) {
+		return "Title: " + getTitle() + "\nRelease Year: " + getReleaseYear() +  "\nRating: " 
+				+  getRating() + "\nDescription: " +  getDescription() + "\nLanguage: " + film.getLanguage();
+	}
+	
+	public String filmString(Film film) {
+		return "Id: " + getId() + "\nTitle: " + getTitle() + "\nDescription: " + getDescription() + "\nRelease Year: " + getReleaseYear() + 
+		"\nLanguage: " + film.getLanguage() + "\nRental Duration: " + getRentalDuration() + "\nRental Rate: "+ getRentalRate() + "\nLength: " + getLength() +
+		"\nReplacement Cost: " + getReplacementCost() + "\nRating: " + getRating() + "\nSpecial Features: " + getSpecialFeatures();
 	}
 
 	@Override

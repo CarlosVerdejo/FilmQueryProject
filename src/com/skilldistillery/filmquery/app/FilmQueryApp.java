@@ -15,8 +15,8 @@ public class FilmQueryApp {
 
 	public static void main(String[] args) {
 		FilmQueryApp app = new FilmQueryApp();
-//		app.test();
-		app.launch();
+		app.test();
+//		app.launch();
 	}
 
 	private void test() {
@@ -43,17 +43,29 @@ public class FilmQueryApp {
 //		} else {
 //			System.out.println("No such film id exists");
 //		}
+		
 
-		List<Actor> actors = db.findActorsByFilmId(350);
-		if (actors != null) {
-			for (Actor a : actors) {
-				System.out.println(a);
-				System.out.println();
-			}
-		} else {
-			System.out.println("Film ID Not Found");
+//		List<Actor> actors = db.findActorsByFilmId(350);
+//		if (actors != null) {
+//			for (Actor a : actors) {
+//				System.out.println(a);
+//				System.out.println();
+//			}
+//		} else {
+//			System.out.println("Film ID Not Found");
+//		}
+		
+		
+//		String language = db.defineLanguage(5);
+//		System.out.println(language);
+		
+
+		List<Film> films = db.findFilmByKeyword("we");
+		for(Film f : films) {
+			System.out.println(f.reducedFilmString(f));
+			System.out.println();
 		}
-
+		
 	}
 
 	private void launch() {
@@ -78,8 +90,9 @@ public class FilmQueryApp {
 					System.out.println("Enter Film ID: ");
 					int filmId = input.nextInt();
 					Film film = db.findFilmById(filmId);
+					
 					if (film != null) {
-						System.out.println(film.filmByFilmIdString());
+						System.out.println(film.reducedFilmString(film));
 					} else {
 						System.out.println("No Films With Film ID: " + filmId + " Were Found In The Database");
 
@@ -90,7 +103,7 @@ public class FilmQueryApp {
 					String flush = input.nextLine();
 				break;
 			case "2":
-				System.out.println("hello 2");
+				System.out.println("Enter Keyword: ");
 				break;
 			case "3":
 				System.out.println("exit");
