@@ -235,7 +235,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		try {
 			Connection conn = DriverManager.getConnection(URL, username, password);
 			
-			String sql = "select film.title, film.release_year, film.rating, film.description, film.language_id from film where film.title or film.description like ?";
+			String sql = "select film.title, film.release_year, film.rating, film.description, film.language_id, film.id from film where film.title or film.description like ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setString(1, "%" + keyWord + "%");
 			ResultSet kwResult = stmt.executeQuery();
@@ -251,6 +251,8 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				Film film = new Film(title, description, year, rating, langid, filmId);
 				films.add(film);
 			}
+			stmt.close();
+			conn.close();
 			
 		} catch(SQLException e) {
 			e.printStackTrace();

@@ -15,8 +15,8 @@ public class FilmQueryApp {
 
 	public static void main(String[] args) {
 		FilmQueryApp app = new FilmQueryApp();
-		app.test();
-//		app.launch();
+//		app.test();
+		app.launch();
 	}
 
 	private void test() {
@@ -103,7 +103,18 @@ public class FilmQueryApp {
 					String flush = input.nextLine();
 				break;
 			case "2":
-				System.out.println("Enter Keyword: ");
+					System.out.println("Enter Keyword: ");
+					String keyWord = input.nextLine();
+					List<Film> film = db.findFilmByKeyword(keyWord);
+					System.out.println(film.size());
+					if (film.size() > 0) {
+						for (Film f : film) {
+						System.out.println(f.reducedFilmString(f));	
+						}
+					} else{
+						System.out.println("No Films With Keyword: " + keyWord + " Were Found In The Database");
+					}
+					String flush2 = input.nextLine();
 				break;
 			case "3":
 				System.out.println("exit");
