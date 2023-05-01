@@ -11,7 +11,7 @@ from the given menu options. A switch is then used to execute the selected optio
 
 "DatabaseAccessorObject.java" contains the methods that execute the searches on the database.
 The searches are made by first connecting to the SQL database, declaring a string that
-contains the SQL search statement, pre-compiling the search statement and executing the statement. The results are then used to create either "Film" or "Actor" Object and stored into an ArrayList as needed. 
+contains the SQL search statement, pre-compiling the search statement and executing the statement. The results are then used to create either a "Film" or "Actor" Object and then stored into an ArrayList as needed. 
 
 # Technologies Used
 Java: DatabaseAccessor, PreparedStatements, Connection/DriverManager, ResultSet, Try Catch blocks, encapsulation, ArrayList, switches. 
@@ -20,4 +20,4 @@ SQL
 
 # Lessons Learned
 The main lessons learned in this project were learning how to construct search statements in order to retrieve the correct data from an SQL database.
-As well as learning how to connect to the database using Java and executing those statements.
+As well as connecting to the database and executing those statements using Java.
