@@ -177,7 +177,6 @@ public class Film {
 				+ ", languageId=" + languageId + ", rentalDuration=" + rentalDuration + ", rentalRate=" + rentalRate
 				+ ", length=" + length + ", replacementCost=" + replacementCost + ", rating=" + rating
 				+ ", specialFeatures=" + specialFeatures + "]";
-
 	}
 
 	@Override

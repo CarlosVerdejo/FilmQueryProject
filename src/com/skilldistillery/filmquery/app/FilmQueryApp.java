@@ -60,11 +60,11 @@ public class FilmQueryApp {
 //		System.out.println(language);
 		
 
-		List<Film> films = db.findFilmByKeyword("we");
-		for(Film f : films) {
-			System.out.println(f.reducedFilmString(f));
-			System.out.println();
-		}
+//		List<Film> films = db.findFilmByKeyword("we");
+//		for(Film f : films) {
+//			System.out.println(f.reducedFilmString(f));
+//			System.out.println();
+//		}
 		
 	}
 
@@ -73,7 +73,7 @@ public class FilmQueryApp {
 
 		startUserInterface(input);
 
-		System.out.println("confirmed close");
+		
 		input.close();
 	}
 
